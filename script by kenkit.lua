@@ -18,15 +18,10 @@ ImageButton.Image = "http://www.roblox.com/asset/?id=83190276951914"
 UICorner.CornerRadius = UDim.new(1, 0) 
 UICorner.Parent = ImageButton
 
-MenuFrame.Parent = ScreenGui
-MenuFrame.Size = UDim2.new(0, 200, 0, 250)
-MenuFrame.Position = UDim2.new(0.1, 50, 0.2, 0)
-MenuFrame.BackgroundColor3 = Color3.fromRGB(30,30,30)
-MenuFrame.Visible = true
 
 ImageButton.MouseButton1Click:Connect(function()
     open = not open
-    YourMainFrame.Visible = open
+    MenuFrame.Visible = open
 end)
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
