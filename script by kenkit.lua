@@ -39,7 +39,8 @@ local Tabs = {
         Main2=Window:AddTab({ Title="Script Kaitun" }),
         Main3=Window:AddTab({ Title="Script Pvp" }),
         Main4=Window:AddTab({ Title="script escape tsunami" }),
-		
+		Main5=Window:AddTab({ Title="Script Meme sea" }),
+	
 }
     
     Tabs.Main0:AddButton({
@@ -108,5 +109,18 @@ Tabs.Main4:AddButton({
     Description="",
     Callback=function()
 	  loadstring(game:HttpGet("https://raw.githubusercontent.com/CyrusOffc/scriptcyrus/refs/heads/main/roblox/loader.lua"))()
+  end
+})
+
+Tabs.Main5:AddButton({
+    Title="Redz hub",
+    Description="",
+    Callback=function()
+	  local Settings = {
+  JoinTeam = "Pirates"; -- Pirates/Marines
+  Translator = true; -- true/false
+}
+getgenv().BETA_VERSION = true
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))(Settings)
   end
 })
