@@ -1,33 +1,25 @@
-local player = game.Players.LocalPlayer
-
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = player:WaitForChild("PlayerGui")
-
 local ImageButton = Instance.new("ImageButton")
-ImageButton.Parent = ScreenGui
-ImageButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
-ImageButton.Size = UDim2.new(0,40,0,40)
-ImageButton.Position = UDim2.new(0.1,0,0.2,0)
-ImageButton.Image = "rbxassetid://137199910835132"
-
 local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(1,0)
-UICorner.Parent = ImageButton
-
--- Tạo menu
-local Menu = Instance.new("Frame")
-Menu.Parent = ScreenGui
-Menu.Size = UDim2.new(0,200,0,300)
-Menu.Position = UDim2.new(0.1,50,0.2,0)
-Menu.BackgroundColor3 = Color3.fromRGB(30,30,30)
-Menu.Visible = true
-
--- Toggle
 local open = true
 
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
+ImageButton.Size = UDim2.new(0, 40, 0, 40)
+ImageButton.Draggable = true
+ImageButton.Image = "http://www.roblox.com/asset/?id=83190276951914"
+
+UICorner.CornerRadius = UDim.new(1, 10) 
+UICorner.Parent = ImageButton
+
 ImageButton.MouseButton1Click:Connect(function()
-	open = not open
-	Menu.Visible = open
+    open = not open
+    YourMainFrame.Visible = open
 end)
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
