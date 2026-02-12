@@ -1,4 +1,4 @@
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/kenkittneee/fontroblox/refs/heads/main/font%20script.lua")))()
+loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
        local Window = MakeWindow({
          Hub = {
