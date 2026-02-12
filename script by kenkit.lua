@@ -1,8 +1,6 @@
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
-local MenuFrame = Instance.new("Frame")
-local open = true
 
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -18,12 +16,6 @@ ImageButton.Image = "http://www.roblox.com/asset/?id=83190276951914"
 UICorner.CornerRadius = UDim.new(1, 0) 
 UICorner.Parent = ImageButton
 
-
-ImageButton.MouseButton1Click:Connect(function()
-    open = not open
-    MenuFrame.Visible = open
-end)
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 repeat wait() until game:IsLoaded()
 local Window = Fluent:CreateWindow({
@@ -35,6 +27,9 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.End
 })
+ImageButton.MouseButton1Click:Connect(function()
+    Window.Minimized = not Window.Minimized
+end)
 local Tabs = {
         Main0=Window:AddTab({ Title="Thông Tin" }),
         Main1=Window:AddTab({ Title="Script Farm" }),
