@@ -2,7 +2,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V
 
        local Window = MakeWindow({
          Hub = {
-         Title = "Kenkit ( Gia Bao Dep Trai )",
+         Title = "kenkit hub",
          Animation = "SCRIPT TỔNG HỢP By KENKITNEE"
          },
         Key = {
