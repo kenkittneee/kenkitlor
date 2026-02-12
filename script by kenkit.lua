@@ -1,24 +1,23 @@
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-
 local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = player:WaitForChild("PlayerGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
 
-local ToggleButton = Instance.new("TextButton")
-ToggleButton.Parent = ScreenGui
-ToggleButton.Size = UDim2.fromOffset(100, 40)
-ToggleButton.Position = UDim2.fromScale(0.1, 0.1)
-ToggleButton.Text = "Open / Close"
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local Menu = Instance.new("Frame")
-Menu.Parent = ScreenGui
-Menu.Size = UDim2.fromOffset(400, 250)
-Menu.Position = UDim2.fromScale(0.3, 0.3)
-Menu.BackgroundColor3 = Color3.fromRGB(30,30,30)
-Menu.Visible = false
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
+ImageButton.Size = UDim2.new(0, 40, 0, 40)
+ImageButton.Draggable = true
+ImageButton.Image = "http://www.roblox.com/asset/?id=83190276951914"
 
-ToggleButton.MouseButton1Click:Connect(function()
-    Menu.Visible = not Menu.Visible
+UICorner.CornerRadius = UDim.new(1, 10) 
+UICorner.Parent = ImageButton
+
+ImageButton.MouseButton1Click:Connect(function()
+    Window:Toggle()
 end)
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
