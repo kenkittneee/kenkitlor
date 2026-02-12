@@ -1,61 +1,74 @@
-loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
 
-       local Window = MakeWindow({
-         Hub = {
-         Title = "kenkit hub",
-         Animation = "SCRIPT TỔNG HỢP By KENKITNEE"
-         },
-        Key = {
-        KeySystem = false,
-        Title = "Key System",
-        Description = "",
-        KeyLink = "",
-        Keys = {"1234"},
-        Notifi = {
-        Notifications = true,
-        CorrectKey = "Running the Script...",
-       Incorrectkey = "The key is incorrect",
-       CopyKeyLink = "Copied to Clipboard"
-      }
-    }
-  })
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-       MinimizeButton({
-       Image = "https://create.roblox.com/store/asset/130559888309547",
-       Size = {60, 60},
-       Color = Color3.fromRGB(10, 10, 10),
-       Corner = true,
-       Stroke = false,
-       StrokeColor = Color3.fromRGB(255, 0, 0)
-      })
-      
------- Tab
-     local Tab1o = MakeTab({Name = "Script Farm (bloxfruit)"})
-     local Tab2o = MakeTab({Name = "Script Pvp (bloxfruit)"})
-     local Tab3o = MakeTab({Name = "Script Kaitun (bloxfruit)"})
-     local Tab4o = MakeTab({Name = "Script escape tsunami for brainrots"})
-     
-------- BUTTON
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
+ImageButton.Size = UDim2.new(0, 40, 0, 40)
+ImageButton.Draggable = true
+ImageButton.Image = "http://www.roblox.com/asset/?id=130559888309547"
+
+UICorner.CornerRadius = UDim.new(1, 10) 
+UICorner.Parent = ImageButton
+
+ImageButton.MouseButton1Down:Connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
+end)
+
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+repeat wait() until game:IsLoaded()
+local Window = Fluent:CreateWindow({
+    Title = "Kenkit Tổng Hợp",
+    SubTitle = "by Gia Bao Dep Trai",
+    TabWidth = 157,
+    Size = UDim2.fromOffset(555, 320),
+    Acrylic = true,
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.End
+})
+local Tabs = {
+        Main0=Window:AddTab({ Title="Thông Tin" }),
+        Main1=Window:AddTab({ Title="Script Farm" }),
+        Main2=Window:AddTab({ Title="Script Kaitun" }),
+        Main3=Window:AddTab({ Title="Script Pvp" }),
+        Main4=Window:AddTab({ Title="script escape tsunami" }),
+		
+}
     
-    AddButton(Tab1o, {
-     Name = "Trau v9",
+    Tabs.Main0:AddButton({
+    Title = "Youtuber",
+    Description = "Kenkit nèe",
     Callback = function()
+        setclipboard("https://www.youtube.com/@kenkitdepzai692")
+    end
+})
+
+	
+    Tabs.Main1:AddButton({
+    Title="Trau v9",
+    Description="",
+    Callback=function()
 	  loadstring(game:HttpGet("https://raw.githubusercontent.com/trungdao2k4/buffalo/refs/heads/main/traurobloxv9.lua"))()
+  end
+})
 
-    AddButton(Tab1o, {
-     Name = "Andepzai hub",
-    Callback = function()
+Tabs.Main1:AddButton({
+    Title="Andepzai hub",
+    Description="",
+    Callback=function()
 	  loadstring(game:HttpGet("https://raw.githubusercontent.com/AnDepZaiHub/AnDepZaiHubBeta/refs/heads/main/AnDepZaiHubBeta.lua"))()
+  end
+})
 
-    AddButton(Tab2o, {
-     Name = "Hermanos hub",
-    Callback = function()
-	  local script_mode = "PVP" -- PVP, FARM
-loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
-
-    AddButton(Tab3o, {
-     Name = "Kaitun ( lever )",
-    Callback = function()
+Tabs.Main2:AddButton({
+    Title="Kaitun (lever)",
+    Description="",
+    Callback=function()
 	  getgenv().NAH = {
     DeleteMap = true,
     BlackScreen = false,
@@ -76,8 +89,22 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos
     },
 }
 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/4365e6ab3c80828a24ba946f4d8ff946.lua"))()
+  end
+})
 
-    AddButton(Tab4o, {
-     Name = "Cyrus hub",
-    Callback = function()
+Tabs.Main3:AddButton({
+    Title="Hermanos hub",
+    Description="",
+    Callback=function()
+	  local script_mode = "PVP" -- PVP, FARM
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
+  end
+})
+
+Tabs.Main4:AddButton({
+    Title="Cyrus hub",
+    Description="",
+    Callback=function()
 	  loadstring(game:HttpGet("https://raw.githubusercontent.com/CyrusOffc/scriptcyrus/refs/heads/main/roblox/loader.lua"))()
+  end
+})
