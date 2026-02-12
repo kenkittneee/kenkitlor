@@ -2,26 +2,23 @@ local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
 
-ScreenGui.Parent = game.CoreGui
+ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
-ImageButton.Size = UDim2.new(0, 40, 0, 40)
+ImageButton.Position = UDim2.new(0.1, 0, 0.15, 0)
+ImageButton.Size = UDim2.new(0, 45, 0, 45)
+ImageButton.Image = "rbxassetid://137199910835132"
+ImageButton.Active = true
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=137199910835132"
 
-UICorner.CornerRadius = UDim.new(1, 10) 
+UICorner.CornerRadius = UDim.new(1, 0) 
 UICorner.Parent = ImageButton
 
-ImageButton.MouseButton1Down:Connect(function()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
-end)
-
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-repeat wait() until game:IsLoaded()
+
 local Window = Fluent:CreateWindow({
     Title = "Kenkit Tổng Hợp",
     SubTitle = "by Gia Bao Dep Trai",
@@ -31,6 +28,11 @@ local Window = Fluent:CreateWindow({
     Theme = "Dark",
     MinimizeKey = Enum.KeyCode.End
 })
+
+ImageButton.MouseButton1Click:Connect(function()
+    Window:Minimize()
+end)
+
 local Tabs = {
         Main0=Window:AddTab({ Title="Thông Tin" }),
         Main1=Window:AddTab({ Title="Script Farm" }),
