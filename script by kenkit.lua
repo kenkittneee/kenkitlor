@@ -4,6 +4,7 @@ local UICorner = Instance.new("UICorner")
 
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Enabled = true
 
 ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -11,13 +12,16 @@ ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.10615778, 0, 0.16217947, 0)
 ImageButton.Size = UDim2.new(0, 40, 0, 40)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=137199910835132"
+ImageButton.Image = "rbxassetid://137199910835132"
 
-UICorner.CornerRadius = UDim.new(1, 10) 
+UICorner.CornerRadius = UDim.new(1, 0)
 UICorner.Parent = ImageButton
 
-ImageButton.MouseButton1Down:Connect(function()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.End, false, game)
+local isOpen = true
+
+ImageButton.MouseButton1Click:Connect(function()
+    isOpen = not isOpen
+    ScreenGui.Enabled = isOpen
 end)
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
