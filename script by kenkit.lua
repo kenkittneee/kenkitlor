@@ -10,7 +10,7 @@ ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.BorderSizePixel = 0
 ImageButton.Position = UDim2.new(0.1, 0, 0.15, 0)
 ImageButton.Size = UDim2.new(0, 45, 0, 45)
-ImageButton.Image = "https://create.roblox.com/store/asset/112847886551666/2"
+ImageButton.Image = "http://www.roblox.com/asset/?id=112847886551666"
 ImageButton.Active = true
 ImageButton.Draggable = true
 
