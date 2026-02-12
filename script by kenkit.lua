@@ -1,82 +1,24 @@
 local Players = game:GetService("Players")
-local TweenService = game:GetService("TweenService")
-
 local player = Players.LocalPlayer
 
--- Tạo GUI
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = player:WaitForChild("PlayerGui")
 
--- Nút mở menu
 local ToggleButton = Instance.new("TextButton")
 ToggleButton.Parent = ScreenGui
-ToggleButton.Size = UDim2.fromOffset(120, 40)
+ToggleButton.Size = UDim2.fromOffset(100, 40)
 ToggleButton.Position = UDim2.fromScale(0.1, 0.1)
-ToggleButton.Text = "MENU"
-ToggleButton.BackgroundColor3 = Color3.fromRGB(0,0,0)
-ToggleButton.TextColor3 = Color3.new(1,1,1)
-ToggleButton.Draggable = true
+ToggleButton.Text = "Open / Close"
 
--- Menu chính
 local Menu = Instance.new("Frame")
 Menu.Parent = ScreenGui
 Menu.Size = UDim2.fromOffset(400, 250)
 Menu.Position = UDim2.fromScale(0.3, 0.3)
 Menu.BackgroundColor3 = Color3.fromRGB(30,30,30)
 Menu.Visible = false
-Menu.Active = true
-Menu.Draggable = true
 
--- Bo góc
-local UICorner = Instance.new("UICorner")
-UICorner.Parent = Menu
-
--- Scale effect
-local UIScale = Instance.new("UIScale")
-UIScale.Parent = Menu
-UIScale.Scale = 0.8
-
--- Trạng thái
-local isOpen = false
-
--- Tween info
-local tweenInfo = TweenInfo.new(
-    0.25, -- thời gian
-    Enum.EasingStyle.Quad,
-    Enum.EasingDirection.Out
-)
-
--- Hàm mở menu
-local function OpenMenu()
-    Menu.Visible = true
-    
-    TweenService:Create(UIScale, tweenInfo, {Scale = 1}):Play()
-    TweenService:Create(Menu, tweenInfo, {BackgroundTransparency = 0}):Play()
-    
-    isOpen = true
-end
-
--- Hàm đóng menu
-local function CloseMenu()
-    local tween1 = TweenService:Create(UIScale, tweenInfo, {Scale = 0.8})
-    local tween2 = TweenService:Create(Menu, tweenInfo, {BackgroundTransparency = 1})
-    
-    tween1:Play()
-    tween2:Play()
-    
-    tween1.Completed:Wait()
-    Menu.Visible = false
-    
-    isOpen = false
-end
-
--- Khi bấm nút
 ToggleButton.MouseButton1Click:Connect(function()
-    if isOpen then
-        CloseMenu()
-    else
-        OpenMenu()
-    end
+    Menu.Visible = not Menu.Visible
 end)
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
