@@ -1,6 +1,7 @@
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
+local MenuFrame = Instance.new("Frame")
 local open = true
 
 ScreenGui.Parent = game.CoreGui
@@ -14,8 +15,14 @@ ImageButton.Size = UDim2.new(0, 40, 0, 40)
 ImageButton.Draggable = true
 ImageButton.Image = "http://www.roblox.com/asset/?id=83190276951914"
 
-UICorner.CornerRadius = UDim.new(1, 10) 
+UICorner.CornerRadius = UDim.new(1, 0) 
 UICorner.Parent = ImageButton
+
+MenuFrame.Parent = ScreenGui
+MenuFrame.Size = UDim2.new(0, 200, 0, 250)
+MenuFrame.Position = UDim2.new(0.1, 50, 0.2, 0)
+MenuFrame.BackgroundColor3 = Color3.fromRGB(30,30,30)
+MenuFrame.Visible = true
 
 ImageButton.MouseButton1Click:Connect(function()
     open = not open
