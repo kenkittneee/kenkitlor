@@ -1,6 +1,7 @@
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
+local FluentGui = game.CoreGui:FindFirstChild("Fluent")
 
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -28,7 +29,9 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 ImageButton.MouseButton1Click:Connect(function()
-    Window.Minimized = not Window.Minimized
+    if FluentGui then
+        FluentGui.Enabled = not FluentGui.Enabled
+    end
 end)
 local Tabs = {
         Main0=Window:AddTab({ Title="Thông Tin" }),
