@@ -68,6 +68,14 @@ Tabs.Main1:AddButton({
   end
 })
 
+Tabs.Main1:AddButton({
+    Title="Quantum hub",
+    Description="",
+    Callback=function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
+  end
+})
+
 Tabs.Main2:AddButton({
     Title="Kaitun (lever)",
     Description="",
