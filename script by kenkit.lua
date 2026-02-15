@@ -76,6 +76,32 @@ Tabs.Main1:AddButton({
   end
 })
 
+Tabs.Main1:AddButton({
+    Title="Omg hub",
+    Description="",
+    Callback=function()
+	  loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/20f318386e3fbf069ee3fa797cfc9f34.lua"))()
+  end
+})
+
+Tabs.Main1:AddButton({
+    Title="Blue x hub",
+    Description="",
+    Callback=function()
+	  _G.AutoTranslate = true
+	  _G.SaveConfig = true
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-BlueX/BlueX-Hub/refs/heads/main/Main.lua"))() 
+  end
+})
+
+Tabs.Main1:AddButton({
+    Title="Hoho hub",
+    Description="",
+    Callback=function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
+  end
+})
+
 Tabs.Main2:AddButton({
     Title="Kaitun (lever)",
     Description="",
