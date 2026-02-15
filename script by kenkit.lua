@@ -102,6 +102,14 @@ Tabs.Main1:AddButton({
   end
 })
 
+Tabs.Main1:AddButton({
+    Title="Gravity hub",
+    Description="",
+    Callback=function()
+	  loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua"))()
+  end
+})
+
 Tabs.Main2:AddButton({
     Title="Kaitun (lever)",
     Description="",
